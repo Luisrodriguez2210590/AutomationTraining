@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class OverloadedClass {
+    
+    public static void main(String[] args) {
+        //TODO Auto-generated method stub
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input first number: ");
+        int n1 = scanner.nextInt();
+        
+        System.out.println("Input second number: ");
+        int n2 = scanner.nextInt();
+        
+        System.out.println("Input third number: ");
+        int n3 = scanner.nextInt();
+        
+        System.out.println("Input fourth number: ");
+        String n4 = scanner.nextLine();
+        
+        if(scanner.hasNextLine())  {
+            n4 = scanner.nextLine();
+        }
+        
+        else {
+            n4 = null;
+        }
+        
+        if(n4.isEmpty()) {
+            onlyThreeNumbersFunctions(n1, n2, n3);
+        }
+        else {
+            try {
+  
+            int nNew = Integer.parseInt(n4);
+            int greatestNumber = getGreatestNumber(n1, n2, n3, nNew);
+            System.out.println("The greatest number from [" + n1 +", " + n2 + ", " + n3 + ", " + n4 + "] is: " + greatestNumber);
+            }
+            catch (Exception e) {
+                System.out.println("The fourth numberwas expected but we found a non-number only take the three numbers");
+                onlyThreeNumbersFunctions(n1, n2, n3);
+            }
+            
+        }
+    }
+    
+    static void onlyThreeNumbersFunctions (int n1, int n2, int n3) {
+        int greatestNumber = getGreatestsNumber(n1, n2, n3);
+        System.out.println("The greatest number from [" + n1 +", " + n2 + ", " + n3 + ", " + nNew + "] is: " + greatestNumber);
+    }
+
+    static int getGreatestNumber(int n1, int n2, int n3) {
+        int greatestNumber = n1;
+        
+        if(greatestNumber < n2) {
+            greatestNumber = n2;
+        }
+        
+          if(greatestNumber < n3) {
+            greatestNumber = n3;
+        }
+        return greatestNumber;
+    }
+    static int getGreatestNumber(int n1, int n2, int n3, int n4) {
+        int greatestNumber = n1;    
+        
+         if(greatestNumber < n2) {
+            greatestNumber = n2;
+        }
+         if(greatestNumber < n3) {
+            greatestNumber = n3;
+        }
+         if(greatestNumber < n4) {
+            greatestNumber = n4;
+        }
+        
+        return greatestNumber;
+        
+    }
+}
